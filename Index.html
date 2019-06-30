@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <img src="assets/images/meme-psychic-game.jpg" alt="The Struggle">
+
+
+    <title>Psychic Game</title>
+</head>
+
+<body>
+    <h1> Psychic Game</h1>
+    <p id="directions">Now that Y2K has come and passed, the robots have taken over. It is up to you to save our planet.
+        The only way to defeat them is by using our jedi mindtrick on them.</p>
+    <p id="userchoice-text"></p>
+    <p id="computerchoice-text"></p>
+    <p id="wins-text"></p>
+    <p id="losses-text"></p>
+    <p id="guessnum"></p>
+    <br>
+    <p>Press a, b, c, d, e, f, or g to start! Guess the letter that our robot overloards are thinking to defeat them!
+    </p>
+    <p>Letter Reference (A, B, C, D, E, F, G)</p>
+
+
+
+    <script type="text/javascript">
+        var letters = ["a", "b", "c", "d", "e", "f", "g"]; {
+        }
+
+        var wins = 0;
+        var losses = 0;
+        // Game still needs:
+        //var guessRemaining
+        //var guessSoFar
+        //Restart function which I wasn't sure how to do
+
+        var directions = document.getElementById("directions");
+        var userChoiceText = document.getElementById("userchoice-text");
+        var computerChoiceText = document.getElementById("computerchoice-text");
+        var winsText = document.getElementById("wins-text");
+        var lossesText = document.getElementById("losses-text");
+        var tiesText = document.getElementById("ties-text");
+
+        document.onkeyup = function (event) {
+            var userGuess = event.key;
+            var computerGuess = letters[Math.floor(Math.random() * letters.length)];
+
+            if ((userGuess === "a") || (userGuess === "b") || (userGuess === "c") || (userGuess === "d") || (userGuess === "e") || (userGuess === "f") || (userGuess === "g")) {
+                if ((userGuess === "a" && computerGuess === "a") || (userGuess === "b" && computerGuess === "b") || (userGuess === "c" && computerGuess === "c") || (userGuess === "d" && computerGuess === "d") || (userGuess === "e" && computerGuess === "e") || (userGuess === "f" && computerGuess === "f") || (userGuess === "g" && computerGuess === "g")) {
+                    wins++;
+                } else {
+                    losses++; {
+                    }
+                }
+                directions.textContent = "";
+                userChoiceText.textContent = "You Chose:" + userGuess;
+                computerChoiceText.textContent = "The computer chose: " + computerGuess;
+                winsText.textContent = "wins: " + wins;
+                lossesText.textContent = "losses: " + losses;
+                guessNum = "Guesses" + guessNum;
+            }
+        };
+    </script>
+</body>
+
+</html>
